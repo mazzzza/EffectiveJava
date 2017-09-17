@@ -67,6 +67,7 @@
 		return INSTANCE;
 	}
 
+上記条件を満たしていても特権をもつクライアントは'AccessibleObjct#setAccessible()`メソッドを使用してリフレクションにより`private`コンストラクタを呼び出せる
 対して`enum`によるシングルトンはシンプル
 
 	public enum Elvis {
@@ -74,6 +75,17 @@
 		
 		public void leaveTheBuilding() {...}
 	}
-	
+
+## section 4 `private`のコンストラクタでインスタンス化不可能を強調する
+
+例）
+
+	public class UtilityClass {
+		private UtilityClass() { throw new AssertionError(); }
+		:
+	}
+
+## section 5 不必要なオブジェクトの生成を避ける
+
 
 
