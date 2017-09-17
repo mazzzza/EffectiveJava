@@ -3,6 +3,7 @@
 ## section 1 コンストラクタの代わりに`static` ファクトリーメソッドを検討する
 
 例）
+
 	public static Boolean valueOf(boolean b) return b ? Boolean.TRUE : Boolean.FALSE;
 
 * objectの生成コストが高い場合、不必要なインスタンス化をしないように実装できる
@@ -13,6 +14,7 @@
 ## section 2 コンストラクタパラメタが多い場合はビルダーを使う
 
 例）
+
 	public class NutritionFacts {
 		private final int servingSize;
 		private final int servings;
@@ -59,6 +61,7 @@
 2. `readResolve`メソッドを提供する（デシリアライズするごとに新たなインスタンスが生成されることを防ぐ）
 
 例）
+
 	private Object readResolve() throws ObjectStreamException {
 		// 本物のオブジェクトを返して偽物をGCに始末させる
 		return INSTANCE;
